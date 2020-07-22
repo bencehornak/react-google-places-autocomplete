@@ -44,11 +44,11 @@ class GooglePlacesAutocomplete extends React.Component {
   }
 
   async componentDidMount() {
-    const { apiKey, onLoadFailed } = this.props;
+    const { apiKey, language, onLoadFailed } = this.props;
 
     try {
       if (apiKey) {
-        await injectScript(apiKey);
+        await injectScript(apiKey, language);
       }
 
       this.initializeService();
@@ -319,6 +319,7 @@ GooglePlacesAutocomplete.propTypes = {
   initialValue: PropTypes.string,
   inputClassName: PropTypes.string,
   inputStyle: PropTypes.object,
+  language: PropTypes.string,
   loader: PropTypes.node,
   minLengthAutocomplete: PropTypes.number,
   onLoadFailed: PropTypes.func,
@@ -342,6 +343,7 @@ GooglePlacesAutocomplete.defaultProps = {
   initialValue: '',
   inputClassName: '',
   inputStyle: {},
+  language: undefined,
   loader: null,
   minLengthAutocomplete: 0,
   onLoadFailed: console.error, // eslint-disable-line no-console

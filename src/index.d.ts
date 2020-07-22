@@ -39,6 +39,7 @@ interface GooglePlacesAutocompleteProps {
   initialValue?: string;
   inputClassName?: string;
   inputStyle?: object;
+  loader?: string;
   loader?: JSX.Element;
   minLengthAutocomplete?: number;
   onLoadFailed?: (error: Error) => void;

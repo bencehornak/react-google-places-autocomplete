@@ -18,7 +18,7 @@ let onScriptLoadErrorCallbacks = [];
 // Note that only the first call of the function will actually trigger an
 // injection with the provided API key, the subsequent calls will be
 // resolved/rejected when the first one succeeds/fails.
-const injectScript = (apiKey) => {
+const injectScript = (apiKey, language) => {
   switch (injectionState) {
     case INJECTION_STATE_DONE:
 
@@ -39,7 +39,9 @@ const injectScript = (apiKey) => {
         const script = document.createElement('script');
 
         script.type = 'text/javascript';
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+        let src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+        if (language) src += `&language=${language}`;
+        script.src = src;
         script.async = true;
         script.defer = true;
 

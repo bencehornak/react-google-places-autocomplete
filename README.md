@@ -63,6 +63,7 @@ export default Component;
 | initialValue          | string   |          | ''         |
 | inputClassName        | string   |          | ''         |
 | inputStyle            | object   |          | {}         |
+| language              | string   |          | undefined  |
 | loader                | node     |          | null       |
 | onLoadFailed          | function |          | `console.error` |
 | onSelect              | function |          | () => {}   |
@@ -163,6 +164,10 @@ provided by the library.
 ### inputStyle
 
 Inline styles for the input.
+
+### language
+
+[Optional language parameter of the Google Places API](https://developers.google.com/maps/faq#languagesupport). Do not specify if you want it to be determined based on the user's location or browser settings.
 
 ### loader
 
