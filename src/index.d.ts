@@ -74,11 +74,13 @@ interface geocodeResult {
 declare function geocodeByAddress(address: string): Promise<geocodeResult[]>;
 declare function getLatLng(result: object): Promise<latLng>;
 declare function geocodeByPlaceId(placeId: string): Promise<geocodeResult[]>;
+declare function injectScript(apiKey: string, language?: string): Promise<void>;
 
 export {
   geocodeByAddress,
   getLatLng,
   geocodeByPlaceId,
+  injectScript,
   autocompletionRequestType,
   suggestionType,
 };
